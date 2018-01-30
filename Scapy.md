@@ -71,7 +71,7 @@ If we want to add the header to the previous, we have to use operator ```/```.Be
      ttl= 64
 (...)
 ```
-Sending an ICMP packet.Scapy's method send is used to send a single packet to the IP destination.Using show method, will give all the details of packet. <br >
+Sending an ICMP packet.Scapy's method ```send()``` is used to send a single packet to the IP destination.Using show method, will give all the details of packet. <br >
 ```python
 from scapy.all import *
 packet = IP(dst="192.168.1.114")/ICMP()/"Hey,Rashmi!"

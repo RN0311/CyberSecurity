@@ -33,15 +33,14 @@ Received 2 packets, got 1 answers, remaining 0 packets
 '192.30.253.113'
 ```
 <br >
-Below snipet specifies packet's source IP and then its destination IP. This type of information goes in the IP header, which is a layer 3 protocol according to the 0SI model:
-<br >
+Below snipet specifies packet's source IP and then its destination IP. This type of information goes in the IP header, which is a layer 3 protocol according to the 0SI model:<br >
+
 ```python
 >>> ip = IP(src="192.168.1.114")
 >>> ip.dst="192.168.1.25"
->>> pritnt ip
+>>> ip
 <IP  src=192.168.1.114 dst=192.168.1.25 |>
 ```
-<br >
 If we want to add the header to the previous, we have to use operator ```/```.Below snipet, adds layer 4 protocol i.e. TCP.
 <br >
 ```python

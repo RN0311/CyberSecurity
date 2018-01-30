@@ -71,4 +71,54 @@ If we want to add the header to the previous, we have to use operator ```/```.Be
      ttl= 64
 (...)
 ```
-<br >
+Sending an ICMP packet.Scapy's method send is used to send a single packet to the IP destination.Using show method, will give all the details of packet. <br >
+```python
+from scapy.all import *
+packet = IP(dst="192.168.1.114")/ICMP()/"Hey,Rashmi!"
+send(packet)
+packet.show()
+
+Sent 1 packets.
+###[ IP ]###
+  version   = 4
+  ihl       = None
+  tos       = 0x0
+  len       = None
+  id        = 1
+  flags     =
+  frag      = 0
+  ttl       = 64
+  proto     = icmp
+  chksum    = None
+  src       = 192.168.1.114
+  dst       = 192.168.1.114
+  \options   \
+###[ ICMP ]###
+     type      = echo-request
+     code      = 0
+     chksum    = None
+     id        = 0x0
+     seq       = 0x0
+###[ Raw ]###
+```
+### TCP Three-way handshake
+Firstly, create an instance of an IP header and then define a SYN instance of the TCP header and capture server's TCP sequence number from the server with SYNACK.seq, and increment it by 1.Finally, create the segment with no TCP flags and payload and send it.<br >
+```python
+ip = IP(src='192.168.1.114', dst='192.168.1.25')
+SYN = TCP(sport=1024, dport=80, flags='S', seq=12345)
+packet = ip/SYN
+SYNACK = sr1(packet)
+ack = SYNACK.seq + 1
+ACK = TCP(sport=1024, dport=80, flags='A', seq=12346, ack=ack)
+send(ip/ACK)
+PUSH = TCP(sport=1024, dport=80, flags='', seq=12346, ack=ack)
+data = "Hey,Rash!"
+send(ip/PUSH/data)
+```
+### Fuzzing
+Scapy's fuzz() method allows to craft fuzzing templates and send them in a loop.
+```python
+>>> send(IP(dst="192.168.1.114")/fuzz(UDP()/NTP(version=4)), loop=1)
+................^C
+Sent 16 packets.
+```

@@ -22,6 +22,23 @@ To get better understanding of the working mechanics of Maltrail, checkout resou
 <br ><br >
 
 ## [CapTipper](https://github.com/omriher/CapTipper)
+CapTipper is a Python tool which is used to analyze, explore and revive HTTP malicious traffic.It contains internal tools, with a powerful interactive console, to draw analysis and inspection of the hosts, objects.
+```sh
+Usage: sudo python ./CapTipper.py <PCAP_file> [-p] [web_server_port=70]
+```
+![defaultimage](https://github.com/RN0311/CyberSecurity/blob/master/img/captipper_4.png)
+<br >
+To get bird's eye view on the traffic, use ```hosts``` command and you'll get similar results.<br >
+![hosts](https://github.com/RN0311/CyberSecurity/blob/master/img/hosts.png) <br >
+We can also, get head and body of the page by typing ```head``` and ```body```.<br >
+![body](https://github.com/RN0311/CyberSecurity/blob/master/img/captipper_1.png)
+<br >
+![head](https://github.com/RN0311/CyberSecurity/blob/master/img/captipper_2.png)
+<br >
+To get more information on object 60 use command ```info 60```: <br >
+![info](https://github.com/RN0311/CyberSecurity/blob/master/img/captipper_3.png)
+<br >
+
 ## Resources
 1) https://github.com/stamparm/maltrail 
 2) https://www.terena.org/activities/tf-csirt/meeting47/M.Stampar-Maltrail.pdf

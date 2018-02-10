@@ -38,6 +38,11 @@ We can also, get head and body of the page by typing ```head``` and ```body```.<
 To get more information on object 60 use command ```info 60```: <br >
 ![info](https://github.com/RN0311/CyberSecurity/blob/master/img/captipper_3.png)
 <br >
+To get shortened URI paths, use command ``` sudo python ./CapTipper.py <PCAP_FILE> [-p] [web_server_port=3091] --ungzip -short```
+![info](https://github.com/RN0311/CyberSecurity/blob/master/img/short.png)
+<br >
+To view traffic flow, use command ``` hosts ```
+![info](https://github.com/RN0311/CyberSecurity/blob/master/img/latest_hosts.png)
 
 ## Resources
 1) https://github.com/stamparm/maltrail 
